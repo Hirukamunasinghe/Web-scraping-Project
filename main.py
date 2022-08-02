@@ -1,7 +1,6 @@
 #Importing modules
 import requests
 from bs4 import BeautifulSoup
-import lxml
 from smtplib import SMTP
 
 #URL and headers
@@ -21,7 +20,7 @@ website_html = response.text
 soup = BeautifulSoup(website_html,"lxml")
 # print(soup.prettify())
 
-#Getting the Price of the product(earpods)
+#Getting the Price of the product
 heading = soup.find(name='span',class_="pre-inquiry-price").getText()
 product_price = float(heading.split("$")[0])
 print(product_price)
